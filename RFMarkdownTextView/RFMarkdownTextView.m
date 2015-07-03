@@ -197,6 +197,29 @@
     _delegateProxy.delegateTarget = delegate;
 }
 
+#pragma mark Action Handlers
+
+- (IBAction)moveForward:(id)sender {
+    NSRange selection = self.selectedRange;
+    if (selection.location != NSNotFound) {
+        NSUInteger textLength = self.text.length;
+        if (textLength > 0 && selection.location + selection.length < textLength - 1) {
+            self.selectedRange = NSMakeRange(selection.location+1, selection.length);
+        }
+    }
+}
+
+
+- (IBAction)moveBackward:(id)sender {
+    NSRange selection = self.selectedRange;
+    if (selection.location != NSNotFound) {
+        NSUInteger textLength = self.text.length;
+        if (textLength > 0 && selection.location > 0) {
+            self.selectedRange = NSMakeRange(selection.location-1, selection.length);
+        }
+    }
+}
+
 @end
 
 @implementation RFMarkdownTextView_DelegateProxy

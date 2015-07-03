@@ -37,4 +37,9 @@ typedef void (^ImageBlock)(NSString *);
 
 @property (nonatomic, weak) id<ImagePickerDelegate> imagePickerDelegate;
 
+- (IBAction)moveForward:(id)sender;
+
+- (IBAction)moveBackward:(id)sender;
+
+
 @end
